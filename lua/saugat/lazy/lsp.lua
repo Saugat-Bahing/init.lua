@@ -11,7 +11,7 @@ return {
         "hrsh7th/nvim-cmp",
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
-        "j-hui/fidget.nvim",        
+        "j-hui/fidget.nvim",
     },
 
     config = function()
@@ -20,7 +20,7 @@ return {
         })
         local cmp = require("cmp")
         local cmp_lsp = require("cmp_nvim_lsp")
-        local capabalities = vim.tbl_deep_extend(
+        local capabilities = vim.tbl_deep_extend(
             "force",
             {},
             vim.lsp.protocol.make_client_capabilities(),
@@ -30,23 +30,22 @@ return {
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
-                "gopls",
-                "tsserver",
+                "ts_ls",
             },
             handlers = {
                 function(server_name)
                     require("lspconfig")[server_name].setup {
-                        capabilities = capabailities
+                        capabilities = capabilities
                     }
                 end,
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
-                    lspconfig.lsp_ls.setup {
+                    lspconfig.lua_ls.setup {
                         capabilities = capabilities,
                         settings = {
                             Lua = {
                                 runtime = { version = "Lua 5.1" },
-                                diagonistics = {
+                                diagnostics = {
                                     globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
                                 }
                             }
@@ -78,9 +77,9 @@ return {
             })
         })
 
-        vim.diagonistics.config({
+        vim.diagnostic.config({
             float = {
-                focussable = false,
+                focousable = false,
                 style = "minimal",
                 border = "rounded",
                 source = "always",
