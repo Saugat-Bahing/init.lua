@@ -52,6 +52,12 @@ return {
                         }
                     }
                 end,
+                require("lspconfig").angularls.setup({
+                    capabilities = capabilities,
+                    cmd = { "angular-language-server", "--stdio" },
+                    filetypes = { "typescript", "html", "typescriptreact" },
+                    root_dir = require("lspconfig.util").root_pattern("angular.json", "package.json"),
+                })
             }
         })
 

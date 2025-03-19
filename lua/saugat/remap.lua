@@ -57,3 +57,9 @@ vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
+
+vim.keymap.set("n", "<leader>sh", ":split<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", { noremap = true, silent = true })
+
