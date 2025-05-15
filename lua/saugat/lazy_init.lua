@@ -15,4 +15,3 @@ require("lazy").setup({
     spec = "saugat.lazy",
     change_detection = { notify = false }
 })
-

@@ -1,7 +1,7 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    config = function ()
+    config = function()
         require("nvim-treesitter.configs").setup({
             ensure_installed = {
                 "vimdoc", "javascript", "typescript", "c", "lua", "jsdoc", "bash"
@@ -26,12 +26,12 @@ return {
                         vim.notify(
                             "File larger than 100KB treesitter disabled for performance",
                             vim.log.levels.WARN,
-                            {title = "Treesitter"}
+                            { title = "Treesitter" }
                         )
                         return true
                     end
                 end,
-                additional_vim_regex_highlighting = {"markdown"},
+                additional_vim_regex_highlighting = { "markdown" },
             },
         })
 
@@ -39,7 +39,7 @@ return {
         treesitter_parser_config.templ = {
             install_info = {
                 url = "https://github.com/vrischmann/tree-sitter-templ.git",
-                files = {"src/parser.c", "src/scanner.c"},
+                files = { "src/parser.c", "src/scanner.c" },
                 branch = "master",
             },
         }

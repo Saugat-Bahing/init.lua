@@ -2,7 +2,7 @@ return {
     "ThePrimegen/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon.git",
     branch = "harpoon2",
-    dependencies = { {"nvim-lua/plenary.nvim"} },
+    dependencies = { { "nvim-lua/plenary.nvim" } },
     config = function()
         local harpoon = require("harpoon")
 
