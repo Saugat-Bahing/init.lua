@@ -21,7 +21,7 @@ vim.lsp.enable("lua_ls")
 vim.lsp.config.ts_ls = {
     cmd = { "typescript-language-server", "--stdio" },
     filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-    root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
+    root_markers = { "tsconfig.json", "jsconfig.json", "package.json" },
 
     init_options = {
         hostInfo = "neovim",
@@ -62,7 +62,7 @@ vim.lsp.enable({ "ts_ls", "cssls", "htmlls" })
 vim.lsp.config.ruby_ls = {
     cmd = { "ruby-lsp" },
     filetypes = { "ruby" },
-    root_markers = { "Gemfile", ".git", "." },
+    root_markers = { "Gemfile", ".ruby-lsp" },
 
     init_options = {
         enabledFeatures = {
@@ -84,17 +84,14 @@ vim.lsp.enable({ "ruby_ls" })
 
 -- }}}
 
-
 vim.diagnostic.config({
-    float = {
-        focousable = false,
-        style = "minimal",
-        border = "rounded",
-        source = "always",
-        header = "",
-        prefix = "",
-    },
+    virtual_text = true,      -- show inline diagnostics
+    signs = true,             -- show signs like E/W
+    underline = true,         -- underline problems
+    update_in_insert = false, -- don't update in insert mode
+    severity_sort = true,
 })
+
 
 -- Start, Stop, Restart, Log commands {{{
 vim.api.nvim_create_user_command("LspStart", function()

@@ -24,3 +24,20 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
     end
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "ruby", -- Replace with your desired filetype
+    callback = function()
+        -- Get the current indentkeys
+        local current_keys = vim.opt_local.indentkeys:get()
+
+        -- Remove specific keys, e.g., '0=' (trigger on '=') or '0#' (trigger on '#')
+        local filtered_keys = vim.tbl_filter(function(key)
+            return key ~= "=when" and key ~= "." and key ~= "=else"
+        end, current_keys)
+
+
+        -- Apply the updated indentkeys list
+        vim.opt_local.indentkeys = filtered_keys
+    end,
+})
