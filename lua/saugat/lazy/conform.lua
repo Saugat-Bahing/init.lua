@@ -8,6 +8,7 @@ return {
 				javascript = { "prettier" },
 				typescript = { "prettier" },
 				typescriptreact = { "prettier" },
+				html = { "prettier" },
 				ruby = { "rubocop" },
 			},
 			format_on_save = {
