@@ -130,6 +130,20 @@ vim.lsp.config.clangd = {
 vim.lsp.enable({ "clangd" })
 -- }}}
 
+-- Intelephense {{{
+vim.lsp.config.intelephense = {
+	cmd = { "intelephense", "--stdio" },
+	filetypes = { "php" },
+	root_markers = { "composer.json", ".git" },
+
+	init_options = {
+		storagePath = vim.fn.stdpath("cache") .. "/intelephense",
+	},
+}
+
+vim.lsp.enable({ "intelephense" })
+-- }}}
+
 vim.diagnostic.config({
 	virtual_text = true, -- show inline diagnostics
 	signs = true, -- show signs like E/W
